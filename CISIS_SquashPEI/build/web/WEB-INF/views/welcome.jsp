@@ -10,12 +10,7 @@
             <table>
                      
                 <tr>
-                    <td>        <input type="submit" name="action" value="Submit">
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td><a href="http://localhost:8080/CISIS_Template_Application/welcome?test=123&test2=456">test hyperlink</a>
+                    <td>        <input type="submit" name="action" value="Enter">
                     </td>
                 </tr>
                 

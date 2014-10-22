@@ -3,19 +3,20 @@
         <body>
             <table>                     
                 <tr>
-                    <td>        <input type="submit" name="action" value="Logout">
+                    <td>        <input type="submit" name="action" value="My information">
                     </td>
                 </tr>
                 <tr>
-                    <td>        <input type="submit" name="action" value="View Provinces">
+                    <td>        <input type="submit" name="action" value="Notifications">
                     </td>
                 </tr>
-                <tr>
-                    <td>        <input type="submit" name="action" value="View Countries">
-                    </td>
-                </tr>
+
                 <tr>
                     <td>        <input type="submit" name="action" value="View Codes">
+                    </td>
+                </tr>
+                <tr>
+                    <td>        <input type="submit" name="action" value="Logout">
                     </td>
                 </tr>
             </table>
