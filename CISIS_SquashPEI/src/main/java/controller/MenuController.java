@@ -1,10 +1,9 @@
 package controller;
 
 import beans.CodeValue;
-import forms.Login;
+import beans.Member;
 import forms.Menu;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +24,11 @@ public class MenuController {
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
+        } else if (menu.getAction().equalsIgnoreCase("My Information")) {
+            System.out.println("User wants to view their information");
+            mv = new ModelAndView("memberBio");
+            mv.addObject("message", "User selected My informatio");
+            mv.addObject("memberBio",new Member());
         } else if (menu.getAction().equalsIgnoreCase("View Provinces")) {
             System.out.println("User wants to view the provinces");
             mv = new ModelAndView("main");

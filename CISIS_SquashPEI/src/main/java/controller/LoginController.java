@@ -1,5 +1,6 @@
 package controller;
 
+import beans.Member;
 import business.AccessBO;
 import database.CodeValueDAO;
 import forms.Login;
@@ -39,8 +40,9 @@ public class LoginController {
         }
         if (validCredentials){
             CodeValueDAO.loadCodes(request);
-            mv = new ModelAndView("main");
-        } else {
+            mv = new ModelAndView("memberBio");
+            mv.addObject("memberBio",new Member());
+       } else {
             mv = new ModelAndView("login");
         }
 

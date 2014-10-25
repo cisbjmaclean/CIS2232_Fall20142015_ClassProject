@@ -3,7 +3,7 @@
         <body>
             <table>                     
                 <tr>
-                    <td>        <input type="submit" name="action" value="My information">
+                    <td>        <input type="submit" name="action" value="My Information">
                     </td>
                 </tr>
                 <tr>
