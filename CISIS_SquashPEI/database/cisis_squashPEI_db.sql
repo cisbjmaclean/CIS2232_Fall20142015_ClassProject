@@ -41,7 +41,10 @@ INSERT INTO `code_type` (`code_type`, `english_description`, `french_description
 (14, 'Funding Source', 'Funding Source', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
 (15, 'Positions', 'Positions', '2014-06-15 00:00:00', 'BJMACLEAN', '2014-06-15 00:00:00', 'BJMACLEAN'),
 (16, 'Notification types', 'Notification types', '2014-06-06 00:00:00', 'BJMACLEAN', '2014-06-06 00:00:00', 'BJMACLEAN'),
-(17, 'User types', 'User types', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin');
+(17, 'User types', 'User types', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
+(18, 'Divisions', 'Divisions', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
+(19, 'Levels', 'Levels', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
+(20, 'Clubs', 'Clubs', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin');
 
 -- --------------------------------------------------------
 
@@ -129,7 +132,18 @@ INSERT INTO `code_value` (`code_type_id`, `code_value_sequence`, `english_descri
 (16, 1, 'Message', 'Message', 'Message', 'Message', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
 (16, 2, 'Important Message', 'Important Message', 'IM', 'IM', '2014-06-07 00:00:00', 'BJMACLEAN', '2014-06-07 00:00:00', 'BJMACLEAN'),
 (17, 1, 'Administrator', 'Admin', 'Administrator', 'Admin', '2014-08-16 21:55:23', 'Admin', '2014-08-16 21:55:23', 'Admin'),
-(17, 2, 'Member', 'Member', 'Member', 'Member', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin');
+(17, 2, 'Member', 'Member', 'Member', 'Member', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(18, 1, 'Mens', 'Mens', 'M', 'M', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(18, 2, 'Womens', 'Womens', 'W', 'W', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(18, 3, 'Junior', 'Junior', 'J', 'J', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(18, 4, 'Mens Masters', 'Mens Masters', 'MM', 'MM', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(18, 5, 'Womens Masters', 'Womens Masters', 'WM', 'WM', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(19, 1, 'A', 'A', 'A', 'A', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(19, 2, 'B', 'B', 'B', 'B', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(19, 3, 'C', 'C', 'C', 'C', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(19, 4, 'D', 'D', 'D', 'D', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(20, 1, 'Spa', 'Spa', 'Spa', 'Spa', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(20, 2, 'UPEI', 'UPEI', 'UPEI', 'UPEI', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin');
 
 -- --------------------------------------------------------
 

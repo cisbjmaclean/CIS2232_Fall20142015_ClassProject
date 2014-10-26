@@ -29,11 +29,6 @@ public class Member {
     private String middleName = "";
     private String lastName = "";
     private int salutationCode;
-    private String previousSurnames = "";
-    private boolean emailToMembers = false;
-    private boolean emailToBusiness = false;
-    private boolean emailToGovernment = false;
-    private boolean emailToPEIDAExecutive = false;
     private String addressLine1 = "";
     private String addressLine2 = "";
     private String municipality = "";
@@ -44,18 +39,78 @@ public class Member {
     private String workPhoneExtension = "";
     private String fax = "";
     private String emailAddress = "";
-    private String website = "";
     private String dateOfBirth = "";
     private int genderCode;
-    private boolean bilingual;
-    private String bilingualOther;
-    private boolean canadianCitizen;
-    private boolean landedImmigrant;
-    private int countryOfOriginCode;
-    private boolean immigrantAuthorized;
-    private String immigrantAuthorizedExpiryDate;
     private String password;
     private int userType;
+    
+    private int divisionCode;
+    private int levelCode;
+    private int clubCode;
+    private String registrationDate;
+    private boolean allowInformationOnWebsite;
+    private boolean allowPhotoUse;
+
+    public int getDivisionCode() {
+        return divisionCode;
+    }
+
+    public void setDivisionCode(int divisionCode) {
+        this.divisionCode = divisionCode;
+    }
+
+    public int getLevelCode() {
+        return levelCode;
+    }
+
+    public void setLevelCode(int levelCode) {
+        this.levelCode = levelCode;
+    }
+
+    public int getClubCode() {
+        return clubCode;
+    }
+
+    public void setClubCode(int clubCode) {
+        this.clubCode = clubCode;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    
+    
+    public boolean isAllowInformationOnWebsite() {
+        return allowInformationOnWebsite;
+    }
+
+    public void setAllowInformationOnWebsite(boolean allowInformationOnWebsite) {
+        this.allowInformationOnWebsite = allowInformationOnWebsite;
+    }
+
+    public boolean isAllowPhotoUse() {
+        return allowPhotoUse;
+    }
+
+    public void setAllowPhotoUse(boolean allowPhotoUse) {
+        this.allowPhotoUse = allowPhotoUse;
+    }
+
+    
+    
+    
+    public static Path getPath() {
+        return path;
+    }
+
+    public static void setPath(Path path) {
+        Member.path = path;
+    }
 
     public int getUserType() {
         return userType;
@@ -93,37 +148,6 @@ public class Member {
         this.newUserId = newUserId;
     }
 
-    public boolean isBilingual() {
-        return bilingual;
-    }
-
-    public void setBilingual(boolean bilingual) {
-        this.bilingual = bilingual;
-    }
-
-    public boolean isCanadianCitizen() {
-        return canadianCitizen;
-    }
-
-    public void setCanadianCitizen(boolean canadianCitizen) {
-        this.canadianCitizen = canadianCitizen;
-    }
-
-    public boolean isLandedImmigrant() {
-        return landedImmigrant;
-    }
-
-    public void setLandedImmigrant(boolean landedImmigrant) {
-        this.landedImmigrant = landedImmigrant;
-    }
-
-    public boolean isImmigrantAuthorized() {
-        return immigrantAuthorized;
-    }
-
-    public void setImmigrantAuthorized(boolean immigrantAuthorized) {
-        this.immigrantAuthorized = immigrantAuthorized;
-    }
 
     public int getGenderCode() {
         return genderCode;
@@ -133,76 +157,12 @@ public class Member {
         this.genderCode = genderCode;
     }
 
-    public String getBilingualOther() {
-        return bilingualOther;
-    }
-
-    public void setBilingualOther(String bilingualOther) {
-        this.bilingualOther = bilingualOther;
-    }
-
-    public int getCountryOfOriginCode() {
-        return countryOfOriginCode;
-    }
-
-    public void setCountryOfOriginCode(int countryOfOriginCode) {
-        this.countryOfOriginCode = countryOfOriginCode;
-    }
-
-    public String getImmigrantAuthorizedExpiryDate() {
-        return immigrantAuthorizedExpiryDate;
-    }
-
-    public void setImmigrantAuthorizedExpiryDate(String immigrantAuthorizedExpiryDate) {
-        this.immigrantAuthorizedExpiryDate = immigrantAuthorizedExpiryDate;
-    }
-
     public String getMiddleName() {
         return middleName;
     }
 
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
-    }
-
-    public String getPreviousSurnames() {
-        return previousSurnames;
-    }
-
-    public void setPreviousSurnames(String previousSurnames) {
-        this.previousSurnames = previousSurnames;
-    }
-
-    public boolean isEmailToMembers() {
-        return emailToMembers;
-    }
-
-    public void setEmailToMembers(boolean emailToMembers) {
-        this.emailToMembers = emailToMembers;
-    }
-
-    public boolean isEmailToBusiness() {
-        return emailToBusiness;
-    }
-
-    public void setEmailToBusiness(boolean emailToBusiness) {
-        this.emailToBusiness = emailToBusiness;
-    }
-
-    public boolean isEmailToGovernment() {
-        return emailToGovernment;
-    }
-
-    public void setEmailToGovernment(boolean emailToGovernment) {
-        this.emailToGovernment = emailToGovernment;
-    }
-
-    public boolean isEmailToPEIDAExecutive() {
-        return emailToPEIDAExecutive;
-    }
-
-    public void setEmailToPEIDAExecutive(boolean emailToPEIDAExecutive) {
-        this.emailToPEIDAExecutive = emailToPEIDAExecutive;
     }
 
     public String getAddressLine1() {
@@ -283,14 +243,6 @@ public class Member {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
     }
 
     public String getDateOfBirth() {

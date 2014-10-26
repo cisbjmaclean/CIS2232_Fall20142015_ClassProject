@@ -10,16 +10,25 @@
 
             <table>                
 
-                <tr><td>Membership Includes:</td></tr>
+                <tr><td><h3>Membership Includes:</h3></td></tr>
                 <tr><td>✓ Inclusion in the Squash PEI email news distribution list</td></tr>
                 <tr><td>✓ Reduced registration fees to Squash PEI sanctioned tournaments and clinics</td></tr>
                 <tr><td>✓ Provincial rankings for female/male players, maintained by Squash PEI </td></tr>
                 <tr><td>✓ Discounts with local and regional businesses which have partnered with Squash PEI</td></tr>
                 <tr><td>✓ Liability and injury insurance that covers accidents during practice, competition and travel to events (this alone is worth your membership fee!)</td></tr>
-                <tr><td></td></tr>
-                <tr><td>Registration Procedure: Complete the form, attach payment; and submit to Kady Bruce or Ken Sampson. Cheques can be made payable to “Squash PEI. (if mailing; please send to Ken Sampson, Box 131, North Rustico, PE, C0A 1X0”.</td></tr>
-                <tr><td>Age, club affiliation and member information are for use by Sport PEI for Injury and Liability Insurance purposes. Contact information is required for Squash PEI communications.</td></tr>
                 <tr><td><hr/></td></tr>
+                <tr><td><h3>Registration Procedure</h3></td></tr>
+                <tr><td>✓ Complete the form, attach payment; and submit to Kady Bruce or Ken Sampson. Cheques can be made payable to “Squash PEI. (if mailing; please send to Ken Sampson, Box 131, North Rustico, PE, C0A 1X0”.</td></tr>
+                <tr><td>✓ Age, club affiliation and member information are for use by Sport PEI for Injury and Liability Insurance purposes. Contact information is required for Squash PEI communications.</td></tr>
+                <tr><td>✓ Signature of Player required(Parent/Guardian if player is Under 18)</td></tr>
+                <tr><td>✓ Membership: $ 30 All Divisions (Maximum of $100.00 per immediate family)</td></tr>
+                <tr><td><hr/></td></tr>
+                <tr>
+                    <td>
+                        <h3><fmt:message key="label.information" /></h3>
+                    </td>
+                </tr>
+
                 <tr>
                     <td><html:hidden property="memberId"/>
                 <label class="alignCenter" for="firstName">
@@ -128,10 +137,62 @@
                         </form:select>
                     </td>
                 </tr>
+
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="divisionCode">
+                            <strong><fmt:message key="label.division" /></strong></label>
+
+                        <form:select path="divisionCode">
+                            <form:options items="${sessionScope.divisions}" itemLabel="description" itemValue="codeValueSequence"/>
+                        </form:select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="levelCode">
+                            <strong><fmt:message key="label.level" /></strong></label>
+
+                        <form:select path="levelCode">
+                            <form:options items="${sessionScope.levels}" itemLabel="description" itemValue="codeValueSequence"/>
+                        </form:select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="clubCode">
+                            <strong><fmt:message key="label.club" /></strong></label>
+
+                        <form:select path="clubCode">
+                            <form:options items="${sessionScope.clubs}" itemLabel="description" itemValue="codeValueSequence"/>
+                        </form:select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="alignCenter"  for="registrationDate">
+                            <strong><fmt:message key="label.registration.date" /></strong></label>
+                            <form:input path="registrationDate" size="10" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <form:checkbox path="allowInformationOnWebsite" value="true" />
+                        <fmt:message key="label.allow.info" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <form:checkbox path="allowPhotoUse" value="true" />
+                        <fmt:message key="label.allow.photos" />
+                    </td>
+                </tr>
+
                 <tr><td><hr/></td></tr>
-                <tr><td>Signature of Player (Parent/Guardian if player is Under 18)</td></tr>
-                <tr><td>Membership: $ 30 All Divisions (Maximum of $100.00 per immediate family)</td></tr>
-                <tr><td><h3>Thanks for Supporting Squash PEI - Good Luck This Year!!</h3></td></tr>
+                <tr><td><h2>Thanks for Supporting Squash PEI - Good Luck This Year!!</h2></td></tr>
 
                 <tr/>
                 <tr align="center">
