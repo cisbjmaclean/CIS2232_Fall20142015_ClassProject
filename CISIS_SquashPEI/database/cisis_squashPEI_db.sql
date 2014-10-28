@@ -309,3 +309,17 @@ INSERT INTO `notification` (`notification_id`, `notification_type_code`, `notifi
 (12, 1, 'bj test', 1, '2014-09-09 15:06:27', NULL, '2014-09-09 15:06:27', NULL),
 (13, 1, 'hi', 1, '2014-09-09 15:07:00', NULL, '2014-09-09 15:07:00', NULL),
 (14, 2, 'ayy lmao', 1, '2014-09-09 15:07:42', NULL, '2014-09-09 15:07:42', NULL);
+
+-- Payments table
+CREATE TABLE IF NOT EXISTS `member_payment` (
+  `member_payment_id` int(10) NOT NULL AUTO_INCREMENT,
+  `member_id` int(10) NOT NULL,
+  `payment_amount` double NOT NULL COMMENT 'Amount of payment',
+  `payment_detail` varchar(144) DEFAULT NULL COMMENT 'Comments about the payment',
+  `payment_season_code` int(3) NOT NULL COMMENT 'Code type 21 - indicate which season the payment is for.',
+  `created_date_time` datetime NOT NULL,
+  `created_user_id` varchar(20) NOT NULL,
+  `updated_date_time` datetime NOT NULL,
+  `updated_user_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`member_payment_id`));
+
