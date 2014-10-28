@@ -2,6 +2,7 @@ package controller;
 
 import beans.CodeValue;
 import beans.Member;
+import business.MemberBO;
 import forms.Menu;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,6 +43,10 @@ public class MenuController {
             mv = new ModelAndView("viewCodes");
             mv.addObject("message", "User selected view codes");
             mv.addObject("codeValue", new CodeValue());
+        } else if (menu.getAction().equalsIgnoreCase("Members")) {
+            System.out.println("User wants to view the members");
+            mv = new ModelAndView("viewMembers");
+            mv.addObject("members",MemberBO.getAllActiveMembers());
         } else {
             mv = new ModelAndView("welcome");
         }

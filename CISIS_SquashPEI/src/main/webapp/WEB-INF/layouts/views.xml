@@ -12,6 +12,10 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/login.jsp" />
 	</definition>
 
+        <definition name="viewMembers" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/viewMembers.jsp" />
+	</definition>
+
         <definition name="memberBio" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/member/member_bio.jsp" />
 	</definition>
