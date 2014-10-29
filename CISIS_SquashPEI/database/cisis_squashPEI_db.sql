@@ -323,3 +323,6 @@ CREATE TABLE IF NOT EXISTS `member_payment` (
   `updated_user_id` varchar(20) NOT NULL,
   PRIMARY KEY (`member_payment_id`));
 
+INSERT INTO `member_bio` (`member_id`, `first_name`, `middle_name`, `last_name`, `address_1`, `address_2`, `municipality`, `province_code`, `postal_code`, `home_phone`, `cell_phone`, `work_phone`, `work_phone_extension`, `fax_number`, `email_address`, `date_of_birth`, `gender_code`) VALUES
+(2, 'Steve', 'Joseph', 'Banks', '333 There Street', NULL, 'Charlottetown', 5, 'c1b0e3', '9025692222', NULL, NULL, NULL, NULL, 'stevebanks@hollandcollege.com', '19950-01-0', 1),
+(1, 'Bruce', 'John', 'MacLean', '123 Here Drive', NULL, 'Stratford', 5, 'c1b0e3', '9025691111', NULL, NULL, NULL, NULL, 'bjmaclean@hollandcollege.com', '2000-01-05', 1);
