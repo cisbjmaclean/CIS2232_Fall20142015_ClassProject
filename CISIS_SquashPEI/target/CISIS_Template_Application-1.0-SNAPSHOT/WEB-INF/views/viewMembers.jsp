@@ -5,7 +5,7 @@
         <table>
             <tr>
                 <td colspan="1"><h2>Active Members</h2></td>
-                <td><a href="havetoaddalist">add member</a>
+                <td><a href="memberAdmin?action=add">add member</a>
                 </td>
             </tr>
             <tr>
@@ -18,7 +18,7 @@
                        varStatus="loopCounter">
                 <tr>
                     <td><c:out value="${thisMember.lastName}" />, <c:out value="${thisMember.firstName}" /></td>
-                    <td><a href="hastobespecified">edit</a>&nbsp;<a href="hastobespecified">delete</a></td>
+                    <td><a href="memberAdmin?action=edit&memberId=${thisMember.memberId}">edit</a>&nbsp;<a href="memberAdmin?action=delete?memberId=${thisMember.memberId}">delete</a></td>
                 </tr>
             </c:forEach>
         </table>
