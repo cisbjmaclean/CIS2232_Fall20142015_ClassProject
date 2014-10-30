@@ -12,12 +12,20 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/login.jsp" />
 	</definition>
 
+        <definition name="notification" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
+	</definition>
+
+        <definition name="notificationAdd" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/notification/notificationAdd.jsp" />
+	</definition>
+
         <definition name="viewMembers" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/viewMembers.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/member/viewMembers.jsp" />
 	</definition>
 
         <definition name="memberBio" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/member/member_bio.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/member/memberBio.jsp" />
 	</definition>
 
         <definition name="main" extends="DefaultTemplate">
@@ -25,19 +33,19 @@
 	</definition>
 
         <definition name="viewCountries" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/viewCountries.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCountries.jsp" />
 	</definition>
 
         <definition name="viewCodeValues" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/viewCodeValues.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodeValues.jsp" />
 	</definition>
 
         <definition name="viewCodes" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/viewCodes.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodes.jsp" />
 	</definition>
 
 	<definition name="personList" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/personList.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/codes/personList.jsp" />
 	</definition>
 	
 </tiles-definitions>
