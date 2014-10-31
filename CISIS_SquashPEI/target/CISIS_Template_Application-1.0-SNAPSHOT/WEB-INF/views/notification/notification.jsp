@@ -6,12 +6,10 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<html:html lang="true">
-    <head>
+<head>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><fmt:message key="welcome.title"/></title>
-    <html:base/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title><fmt:message key="welcome.title"/></title>
 
     <script type="text/javascript">
         function deleteNotification(test, description) {
@@ -28,14 +26,12 @@
     </script> 
 
 </head>
+<html:form action="menu" method="post">
 
-<body>
     <h2><fmt:message key="label.notification"/></h2>
     <div>
-        <spring:nestedPath path="menu">
+        <spring:nestedPath path="menu"> 
 
-        <html:form  action="menu">
-            <form:hidden path="action"/>
             <table>                
 
                 <c:forEach var="thisNotification" items="${notifications}"
@@ -44,7 +40,7 @@
                     <tr>
                         <td>
                             <c:if test="${thisNotifiation.notificationType == '2'}"><strong></c:if>
-                                    ${thisNotification.notificationDetail}
+                                ${thisNotification.notificationDetail}
                                 <c:if test="${thisNotifiation.notificationType == '2'}"></strong></c:if>
                             </td>
                         </tr>
@@ -66,13 +62,11 @@
                 <tr/>
                 <tr align="center">
                     <td colspan="2">
-                        <input type="submit" value=<fmt:message key="label.add.notification"/>/>
+                        <input type="submit" name="action" value="<fmt:message key="label.add.notification"/>"/>
                     </td>
                 </tr>
             </table>
-        </html:form>
         </spring:nestedPath>
     </div>
-</body>
+</html:form>
 
-</html:html>

@@ -2,6 +2,7 @@ package controller;
 
 import beans.CodeValue;
 import beans.Member;
+import beans.Notification;
 import business.MemberBO;
 import business.NotificationBO;
 import forms.Menu;
@@ -23,6 +24,7 @@ public class MenuController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu) {
         //pass validation if they enter "TEST" and "TEST"
+        System.out.println("Menu post invoked");
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
@@ -31,6 +33,10 @@ public class MenuController {
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My informatio");
             mv.addObject("memberBio",new Member());
+        } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
+            System.out.println("User wants to view add a notification");
+            mv = new ModelAndView("notificationAdd");
+            mv.addObject("notification",new Notification());
         } else if (menu.getAction().equalsIgnoreCase("View Provinces")) {
             System.out.println("User wants to view the provinces");
             mv = new ModelAndView("main");
