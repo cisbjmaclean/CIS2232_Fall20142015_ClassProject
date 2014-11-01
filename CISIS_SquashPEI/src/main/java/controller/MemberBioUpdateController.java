@@ -1,7 +1,8 @@
 package controller;
 
 import beans.Member;
-import forms.Menu;
+import beans.MemberSquash;
+import business.MemberBO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,14 +23,24 @@ public class MemberBioUpdateController {
     public String loadMember(ModelMap model) {
 
         model.addAttribute("memberBio", new Member());
+        
+        
+        
         return "welcome";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu) {
+    public ModelAndView onSubmit(@ModelAttribute("memberSquash") MemberSquash memberSquash) {
         //pass validation if they enter "TEST" and "TEST"
+
+        //Use the model to update the database and then return back to the member page.
+        System.out.println("submitted member for update, level="+memberSquash.getLevelCode());
+        System.out.println("submitted member for update, name="+memberSquash.getMember().getLastName());
+        MemberBO.addMember(memberSquash.getMember());
+        
         ModelAndView mv;
-        mv = new ModelAndView("welcome");
+        mv = new ModelAndView("memberBio");
+        mv.addObject("memberSquash", memberSquash);
         return mv;
     }
 }

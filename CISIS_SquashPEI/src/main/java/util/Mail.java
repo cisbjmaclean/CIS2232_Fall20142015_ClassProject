@@ -27,8 +27,10 @@ public class Mail {
     // Assuming you are sending email from localhost
     //String host = "localhost";
     private String host = "smtp.gmail.com";
-    private String userName = "PEIDietitiansBoard@gmail.com";
-    private String password = "HockeyDietitians";
+//    private String userName = "PEIDietitiansBoard@gmail.com";
+//    private String password = "HockeyDietitians";
+    private String userName = "hollandcollegecis@gmail.com";
+    private String password = "HC20140501";    
     private String subject = "This is the Subject Line!";
     private String theMessage = "This is actual message";
     private MimeMessage message;

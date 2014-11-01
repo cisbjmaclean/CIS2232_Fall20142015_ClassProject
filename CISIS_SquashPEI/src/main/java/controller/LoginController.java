@@ -1,15 +1,14 @@
 package controller;
 
 import beans.Member;
+import beans.MemberSquash;
 import business.AccessBO;
 import database.CodeValueDAO;
 import forms.Login;
-import forms.Menu;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +40,9 @@ public class LoginController {
         if (validCredentials){
             CodeValueDAO.loadCodes(request);
             mv = new ModelAndView("memberBio");
-            mv.addObject("memberBio",new Member());
+            MemberSquash ms = new MemberSquash();
+            ms.setMember(new Member());
+            mv.addObject("memberSquash",ms);
        } else {
             mv = new ModelAndView("login");
         }

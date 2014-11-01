@@ -68,14 +68,14 @@ public class MemberDAO {
             ps.setString(6, member.getUserId());
             ps.executeUpdate();
 
-            sql = "INSERT INTO member_employment(member_id, "
-                    + "employment_status_code, currency_code, practice_via_telephone_ind, "
-                    + "practice_via_internet_ind, practice_in_person_ind, practice_jurisdictions) "
-                    + "VALUES (?, null, null, 0, 0, 0, null)";
-
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1, nextMESequence);
-            ps.executeUpdate();
+//            sql = "INSERT INTO member_employment(member_id, "
+//                    + "employment_status_code, currency_code, practice_via_telephone_ind, "
+//                    + "practice_via_internet_ind, practice_in_person_ind, practice_jurisdictions) "
+//                    + "VALUES (?, null, null, 0, 0, 0, null)";
+//
+//            ps = conn.prepareStatement(sql);
+//            ps.setInt(1, nextMESequence);
+//            ps.executeUpdate();
 
             sql = "INSERT INTO member_bio (member_id, first_name, middle_name, last_name, email_address) "
                     + "VALUES (?,?,?,?,?)";

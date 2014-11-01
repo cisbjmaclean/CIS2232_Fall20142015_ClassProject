@@ -1,27 +1,58 @@
 package beans;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import static java.nio.file.StandardOpenOption.APPEND;
-import static java.nio.file.StandardOpenOption.CREATE;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import org.apache.commons.beanutils.BeanUtils;
-
 /**
  *
  * @author BJ
  */
 public class MemberSquash {
 
+    private Member member;
+    private int divisionCode;
+    private int levelCode;
+    private int clubCode;
+    private String registrationDate;
     private boolean allowInformationOnWebsite;
     private boolean allowPhotoUse;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+    
+    public int getDivisionCode() {
+        return divisionCode;
+    }
+
+    public void setDivisionCode(int divisionCode) {
+        this.divisionCode = divisionCode;
+    }
+
+    public int getLevelCode() {
+        return levelCode;
+    }
+
+    public void setLevelCode(int levelCode) {
+        this.levelCode = levelCode;
+    }
+
+    public int getClubCode() {
+        return clubCode;
+    }
+
+    public void setClubCode(int clubCode) {
+        this.clubCode = clubCode;
+    }
+
+    public String getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(String registrationDate) {
+        this.registrationDate = registrationDate;
+    }
 
     public boolean isAllowInformationOnWebsite() {
         return allowInformationOnWebsite;
@@ -38,8 +69,7 @@ public class MemberSquash {
     public void setAllowPhotoUse(boolean allowPhotoUse) {
         this.allowPhotoUse = allowPhotoUse;
     }
-    
-    
+
     
 }
 

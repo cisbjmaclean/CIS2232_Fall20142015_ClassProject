@@ -29,8 +29,12 @@ public class MemberAdminController {
         System.out.println("Action specified="+actionSpecified);
         System.out.println("Member id="+request.getParameter("memberId"));
         
+        //Get the memberBio
+        Member theMember = MemberBO.getMember(request.getParameter("memberId"));
+        
         ModelAndView mv;
         mv = new ModelAndView("welcome");
+        mv.addObject("memberBio",theMember);
         return mv;
     }
 }
