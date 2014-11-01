@@ -191,6 +191,33 @@ public class MemberDAO {
         return members;
     }
 
+    public static Member getMemberByUserid(String userId) {
+        PreparedStatement ps = null;
+        String sql = null;
+        Connection conn = null;
+
+        int memberId = 0;
+        try {
+            conn = ConnectionUtils.getConnection();
+
+            sql = "SELECT member_id FROM member WHERE user_id = ?";
+
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, userId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                memberId = (rs.getInt("member_id"));
+                System.out.println("found member for "+userId+" the member id="+memberId);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+            System.err.println("Error encountered getting member by user id");
+        }            
+        
+        return getMember(String.valueOf(memberId));
+    }
+
+    
     public static Member getMember(String memberId) {
         PreparedStatement ps = null;
         String sql = null;

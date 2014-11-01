@@ -77,4 +77,8 @@ public class MemberBO {
             return MemberDAO.getMember(memberId);
         }
     
+        public static Member getMemberByUserid(String userId){
+            return MemberDAO.getMemberByUserid(userId);
+        }
+
 }

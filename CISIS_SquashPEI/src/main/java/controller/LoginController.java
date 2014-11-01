@@ -3,6 +3,7 @@ package controller;
 import beans.Member;
 import beans.MemberSquash;
 import business.AccessBO;
+import business.MemberBO;
 import database.CodeValueDAO;
 import forms.Login;
 import java.util.logging.Level;
@@ -41,7 +42,9 @@ public class LoginController {
             CodeValueDAO.loadCodes(request);
             mv = new ModelAndView("memberBio");
             MemberSquash ms = new MemberSquash();
-            ms.setMember(new Member());
+            System.out.println("getting member for "+login.getUsername());
+            ms.setMember(MemberBO.getMemberByUserid(login.getUsername()));
+            
             mv.addObject("memberSquash",ms);
        } else {
             mv = new ModelAndView("login");
