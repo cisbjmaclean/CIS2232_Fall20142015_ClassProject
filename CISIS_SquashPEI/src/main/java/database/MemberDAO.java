@@ -135,6 +135,39 @@ public class MemberDAO {
         return;
     }
 
+        public static void deleteMember(int memberId, String updatedUserId) {
+
+        System.out.println("deleting member");
+        PreparedStatement psMember = null;
+        String sql = null;
+        Connection conn = null;
+
+        /*
+         * Setup the sql to update or insert the row (based on update flag).
+         */
+        try {
+            conn = ConnectionUtils.getConnection();
+
+            sql = "UPDATE member "
+                    + "SET status_type=2,"
+                    + "    updated_user_id = ?, "
+                    + "    updated_date_time = sysdate() "
+                    + "WHERE member_id = ?";
+
+            psMember = conn.prepareStatement(sql);
+            psMember.setString(1, updatedUserId);
+            psMember.setInt(2, memberId);
+            psMember.executeUpdate();
+
+        } catch (Exception e) {
+            String errorMessage = e.getMessage();
+            e.printStackTrace();
+        } finally {
+            DbUtils.close(psMember, conn);
+        }
+    }
+
+    
     public static String getAllActiveMembersEmails() {
         String emails = "";
         boolean first = true;
@@ -158,7 +191,8 @@ public class MemberDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM member_bio";
+            sql = "SELECT * FROM member_bio mb, member m where "
+                    + "m.status_type = 1 and m.member_id = mb.member_id";
 
             ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -240,10 +274,11 @@ public class MemberDAO {
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             if (rs.next()) {
+                newMember.setMemberId(Integer.parseInt(memberId));
                 newMember.setFirstName(rs.getString("first_name"));
                 newMember.setMiddleName(rs.getString("middle_name"));
                 newMember.setLastName(rs.getString("last_name"));
-                newMember.setSalutationCode(rs.getInt("salutation_code"));
+               // newMember.setSalutationCode(rs.getInt("salutation_code"));
                 newMember.setAddressLine1(rs.getString("address_1"));
                 newMember.setAddressLine2(rs.getString("address_2"));
                 newMember.setMunicipality(rs.getString("municipality"));
@@ -288,7 +323,7 @@ public class MemberDAO {
             conn = ConnectionUtils.getConnection();
 
             sql = "UPDATE member_bio "
-                    + "SET first_name=?,middle_name=?,last_name=?,salutation_code=?,"
+                    + "SET first_name=?,middle_name=?,last_name=?,"
                     + "address_1=?,address_2=?,municipality=?,province_code=?,"
                     + "postal_code=?,home_phone=?,work_phone=?,work_phone_extension=?,fax_number=?,"
                     + "email_address=?,date_of_birth=?,gender_code=? "
@@ -298,20 +333,19 @@ public class MemberDAO {
             psMember.setString(1, member.getFirstName());
             psMember.setString(2, member.getMiddleName());
             psMember.setString(3, member.getLastName());
-            psMember.setInt(4, member.getSalutationCode());
-            psMember.setString(10, member.getAddressLine1());
-            psMember.setString(11, member.getAddressLine2());
-            psMember.setString(12, member.getMunicipality());
-            psMember.setInt(13, member.getProvinceCode());
-            psMember.setString(14, member.getPostalCode());
-            psMember.setString(15, member.getHomePhone());
-            psMember.setString(16, member.getWorkPhone());
-            psMember.setString(17, member.getWorkPhoneExtension());
-            psMember.setString(18, member.getFax());
-            psMember.setString(19, member.getEmailAddress());
-            psMember.setString(21, member.getDateOfBirth());
-            psMember.setInt(22, member.getGenderCode());
-            psMember.setInt(30, member.getMemberId());
+            psMember.setString(4, member.getAddressLine1());
+            psMember.setString(5, member.getAddressLine2());
+            psMember.setString(6, member.getMunicipality());
+            psMember.setInt(7, member.getProvinceCode());
+            psMember.setString(8, member.getPostalCode());
+            psMember.setString(9, member.getHomePhone());
+            psMember.setString(10, member.getWorkPhone());
+            psMember.setString(11, member.getWorkPhoneExtension());
+            psMember.setString(12, member.getFax());
+            psMember.setString(13, member.getEmailAddress());
+            psMember.setString(14, member.getDateOfBirth());
+            psMember.setInt(15, member.getGenderCode());
+            psMember.setInt(16, member.getMemberId());
 
 //            } else {
 //                //Have to insert the new member.

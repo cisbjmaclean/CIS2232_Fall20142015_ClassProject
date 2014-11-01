@@ -31,12 +31,13 @@
             </tr>
 
             <tr>
-                <td><html:hidden property="member.memberId"/>
+                <td><form:hidden path="member.memberId"/>
             <label class="alignCenter" for="firstName">
                 <strong><fmt:message key="label.first.name" /></strong></label>
                 <form:input path="member.firstName" size="20" />
             </td>
             </tr>
+            
             <tr>
                 <td>
                     <label class="alignCenter" for="middleName">

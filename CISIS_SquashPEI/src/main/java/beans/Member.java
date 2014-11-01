@@ -28,7 +28,6 @@ public class Member {
     private String firstName = "";
     private String middleName = "";
     private String lastName = "";
-    private int salutationCode;
     private String addressLine1 = "";
     private String addressLine2 = "";
     private String municipality = "";
@@ -223,14 +222,6 @@ public class Member {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getSalutationCode() {
-        return salutationCode;
-    }
-
-    public void setSalutationCode(int salutationCode) {
-        this.salutationCode = salutationCode;
     }
 
     public String getPassword() {

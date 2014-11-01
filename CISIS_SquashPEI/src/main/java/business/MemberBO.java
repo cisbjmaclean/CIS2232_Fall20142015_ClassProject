@@ -17,6 +17,8 @@ import util.Mail;
  */
 public class MemberBO {
 
+    
+    
     public static void changePassword(Member theMember, ChangePassword changePassword) throws PasswordException{
         
         
@@ -42,6 +44,13 @@ public class MemberBO {
         
         MemberDAO.updateMember(member);
     }
+
+        public static void deleteMember(Member member, String updatedUserId) throws Exception{
+        //Any validation?
+        
+        MemberDAO.deleteMember(member.getMemberId(), updatedUserId);
+    }
+
     
     public static void addMember(Member member){
         

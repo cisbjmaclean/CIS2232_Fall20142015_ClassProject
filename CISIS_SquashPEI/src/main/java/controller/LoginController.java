@@ -43,6 +43,7 @@ public class LoginController {
             mv = new ModelAndView("memberBio");
             MemberSquash ms = new MemberSquash();
             System.out.println("getting member for "+login.getUsername());
+            request.getSession().setAttribute("loggedInUserId",login.getUsername());
             ms.setMember(MemberBO.getMemberByUserid(login.getUsername()));
             
             mv.addObject("memberSquash",ms);
