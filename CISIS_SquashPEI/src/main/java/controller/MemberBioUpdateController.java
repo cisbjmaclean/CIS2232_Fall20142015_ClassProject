@@ -3,6 +3,7 @@ package controller;
 import beans.Member;
 import beans.MemberSquash;
 import business.MemberBO;
+import business.MemberSquashBO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.stereotype.Controller;
@@ -21,13 +22,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("memberBioUpdate")
 public class MemberBioUpdateController {
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String loadMember(ModelMap model) {
-        
-        model.addAttribute("memberBio", new Member());
-        
-        return "welcome";
-    }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String loadMember(ModelMap model) {
+//        
+//        model.addAttribute("memberBio", new Member());
+//        
+//        return "welcome";
+//    }
     
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("memberSquash") MemberSquash memberSquash) {
@@ -38,11 +39,11 @@ public class MemberBioUpdateController {
         System.out.println("submitted member for update, name=" + memberSquash.getMember().getLastName());
         System.out.println("Member id to add/edit="+memberSquash.getMember().getMemberId());
         if (memberSquash.getMember().getMemberId() == 0) {
-            MemberBO.addMember(memberSquash.getMember());          
+            MemberSquashBO.addMember(memberSquash);          
             
         } else {
             try {
-                MemberBO.updateMember(memberSquash.getMember());
+                MemberSquashBO.updateMemberSquash(memberSquash);
             } catch (Exception ex) {
                 Logger.getLogger(MemberBioUpdateController.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("There was an error updating the member");

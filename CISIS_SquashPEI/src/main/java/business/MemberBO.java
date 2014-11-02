@@ -55,10 +55,22 @@ public class MemberBO {
     public static void addMember(Member member){
         
         try {
+            //set the member username as the first initial first name, first initial middle name
+            //and the last lame
+            String middleInitial = "x";
+            if(member.getMiddleName().length()>0)
+                middleInitial = member.getMiddleName().substring(0,1).toLowerCase();
+           
+                
+            String username = member.getFirstName().substring(0, 1).toLowerCase()
+            + middleInitial
+            + member.getLastName().toLowerCase();
+            member.setNewUserId(username);
+            
             MemberDAO.addMember(member);
-            String emailDetails = " You have been added to the PEI Registration Board Application.  \r\n User name="+member.getNewUserId()+"\r\n Password=rboard"
+            String emailDetails = " You have been added to the Squash PEI Application.  \r\n User name="+member.getNewUserId()+"\r\n Password=rboard"
                     + "\r\n \r\n Access details and change password at:  http://bjmac.hccis.info:8080/RegistrationBoard";
-            Mail mail = new Mail(member.getEmailAddress(), "PEIDietitians@gmail.com", "Dietitian board new user", emailDetails);
+            Mail mail = new Mail(member.getEmailAddress(), "squashpei@gmail.com", "Squash PEI new user", emailDetails);
             mail.sendMail();
 
         } catch (Exception ex) {

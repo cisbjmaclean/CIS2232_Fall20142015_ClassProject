@@ -1,9 +1,8 @@
 package controller;
 
-import beans.Member;
 import beans.MemberSquash;
 import business.AccessBO;
-import business.MemberBO;
+import business.MemberSquashBO;
 import database.CodeValueDAO;
 import forms.Login;
 import java.util.logging.Level;
@@ -44,12 +43,10 @@ public class LoginController {
             MemberSquash ms = new MemberSquash();
             System.out.println("getting member for " + login.getUsername());
             request.getSession().setAttribute("loggedInUserId", login.getUsername());
-            Member theMember = MemberBO.getMemberByUserid(login.getUsername());
-            theMember.setPassword(login.getPassword());
+            MemberSquash theMember = MemberSquashBO.getMemberByUserid(login.getUsername());
+            theMember.getMember().setPassword(login.getPassword());
             request.getSession().setAttribute("loggedInMember", theMember);
-            ms.setMember(theMember);
-
-            mv.addObject("memberSquash", ms);
+            mv.addObject("memberSquash", theMember);
         } else {
             mv = new ModelAndView("login");
         }

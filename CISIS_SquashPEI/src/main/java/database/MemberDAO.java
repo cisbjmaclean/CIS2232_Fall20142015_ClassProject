@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package database;
 
 import beans.Member;
@@ -36,7 +31,7 @@ public class MemberDAO {
             if (rs.next()) {
                 nextMESequence = rs.getInt(1) + 1;
             }
-
+            member.setMemberId(nextMESequence);
             sql = "INSERT INTO member "
                     + "  (`member_id`, `user_id`, `organization_type`, `status_type`, "
                     + "   `user_type`, `created_date_time`, `created_user_id`, `updated_date_time`, `updated_user_id`) "
@@ -380,7 +375,6 @@ public class MemberDAO {
         } finally {
             DbUtils.close(psMember, conn);
         }
-        return;
 
     }
 }

@@ -13,6 +13,19 @@ public class MemberSquash {
     private String registrationDate;
     private boolean allowInformationOnWebsite;
     private boolean allowPhotoUse;
+    private int paymentStatusCode ;
+
+    public MemberSquash(){
+        member = new Member();
+    }
+    
+    public int getPaymentStatusCode() {
+        return paymentStatusCode;
+    }
+
+    public void setPaymentStatusCode(int paymentStatusCode) {
+        this.paymentStatusCode = paymentStatusCode;
+    }
 
     public Member getMember() {
         return member;
