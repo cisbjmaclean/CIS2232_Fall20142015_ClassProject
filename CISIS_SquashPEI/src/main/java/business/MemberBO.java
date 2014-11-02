@@ -34,9 +34,9 @@ public class MemberBO {
         
         //If they do then update the user's password
         //Otherwise return an appropriate error message.
+        System.out.println("Changing password, validation ok");
         MemberDAO.changePassword(theMember.getMemberId(), changePassword.getNewPassword(), theMember.getUserId());
 
-        return;
     }
     
     public static void updateMember(Member member) throws Exception{

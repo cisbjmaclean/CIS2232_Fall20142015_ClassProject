@@ -1,11 +1,13 @@
 package controller;
 
+import beans.ChangePassword;
 import beans.CodeValue;
 import beans.Member;
 import beans.Notification;
 import business.MemberBO;
 import business.NotificationBO;
 import forms.Menu;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MenuController {
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu) {
+    public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu, HttpServletRequest request) {
         //pass validation if they enter "TEST" and "TEST"
         System.out.println("Menu post invoked");
         ModelAndView mv;
@@ -37,14 +39,6 @@ public class MenuController {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
             mv.addObject("notification",new Notification());
-        } else if (menu.getAction().equalsIgnoreCase("View Provinces")) {
-            System.out.println("User wants to view the provinces");
-            mv = new ModelAndView("main");
-            mv.addObject("message", "User selected View Provinces");
-        } else if (menu.getAction().equalsIgnoreCase("View Countries")) {
-            System.out.println("User wants to view the countries");
-            mv = new ModelAndView("viewCountries");
-            mv.addObject("message", "User selected View Countries");
         } else if (menu.getAction().equalsIgnoreCase("View Codes")) {
             System.out.println("User wants to view the codes");
             mv = new ModelAndView("viewCodes");
@@ -54,6 +48,12 @@ public class MenuController {
             System.out.println("User wants to view the members");
             mv = new ModelAndView("viewMembers");
             mv.addObject("members",MemberBO.getAllActiveMembers());
+        } else if (menu.getAction().equalsIgnoreCase("Change Password")) {
+            System.out.println("User wants to change password");
+            mv = new ModelAndView("changePassword");
+            ChangePassword cp = new ChangePassword();
+            cp.setMemberId((String)request.getSession().getAttribute("loggedInUserId"));
+            mv.addObject("changePassword",cp);
         } else if (menu.getAction().equalsIgnoreCase("Notifications")) {
             System.out.println("User wants to view the notifications");
             mv = new ModelAndView("notification");

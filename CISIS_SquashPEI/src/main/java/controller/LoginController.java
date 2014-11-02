@@ -38,16 +38,19 @@ public class LoginController {
         } catch (Exception ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (validCredentials){
+        if (validCredentials) {
             CodeValueDAO.loadCodes(request);
             mv = new ModelAndView("memberBio");
             MemberSquash ms = new MemberSquash();
-            System.out.println("getting member for "+login.getUsername());
-            request.getSession().setAttribute("loggedInUserId",login.getUsername());
-            ms.setMember(MemberBO.getMemberByUserid(login.getUsername()));
-            
-            mv.addObject("memberSquash",ms);
-       } else {
+            System.out.println("getting member for " + login.getUsername());
+            request.getSession().setAttribute("loggedInUserId", login.getUsername());
+            Member theMember = MemberBO.getMemberByUserid(login.getUsername());
+            theMember.setPassword(login.getPassword());
+            request.getSession().setAttribute("loggedInMember", theMember);
+            ms.setMember(theMember);
+
+            mv.addObject("memberSquash", ms);
+        } else {
             mv = new ModelAndView("login");
         }
 

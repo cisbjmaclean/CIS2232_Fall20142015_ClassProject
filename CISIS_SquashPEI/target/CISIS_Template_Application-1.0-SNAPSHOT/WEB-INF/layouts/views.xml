@@ -5,15 +5,23 @@
 <tiles-definitions>
 
 	<definition name="welcome" extends="DefaultTemplateNoMenu">
-	    <put-attribute name="body"	value="/WEB-INF/views/welcome.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/base/welcome.jsp" />
+	</definition>
+
+	<definition name="main" extends="DefaultTemplateNoMenu">
+	    <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
 	</definition>
 
 	<definition name="login" extends="DefaultTemplateNoMenu">
-	    <put-attribute name="body"	value="/WEB-INF/views/login.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/base/login.jsp" />
 	</definition>
 
         <definition name="notification" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/notification/notification.jsp" />
+	</definition>
+
+        <definition name="changePassword" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/member/member_change_password.jsp" />
 	</definition>
 
         <definition name="notificationAdd" extends="DefaultTemplate">
@@ -29,11 +37,7 @@
 	</definition>
 
         <definition name="main" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/main.jsp" />
-	</definition>
-
-        <definition name="viewCountries" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCountries.jsp" />
+	    <put-attribute name="body"	value="/WEB-INF/views/base/main.jsp" />
 	</definition>
 
         <definition name="viewCodeValues" extends="DefaultTemplate">
@@ -44,8 +48,4 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/codes/viewCodes.jsp" />
 	</definition>
 
-	<definition name="personList" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/views/codes/personList.jsp" />
-	</definition>
-	
 </tiles-definitions>
