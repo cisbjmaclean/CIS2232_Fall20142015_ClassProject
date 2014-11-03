@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%-- Layout Tiles 
   This layout render a header, left menu, body and footer.

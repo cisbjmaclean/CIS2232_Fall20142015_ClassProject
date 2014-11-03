@@ -30,6 +30,14 @@ public class MenuController {
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
+        } else if (menu.getAction().equalsIgnoreCase("Make Payment")) {
+            System.out.println("Payment functionaity to be completed");
+            mv = new ModelAndView("main");
+            mv.addObject("informationMessage", "Payment functionaity to be completed");
+        } else if (menu.getAction().equalsIgnoreCase("Reports")) {
+            System.out.println("User wants to view reports");
+            mv = new ModelAndView("main");
+            mv.addObject("informationMessage", "Reports to be determined");
         } else if (menu.getAction().equalsIgnoreCase("My Information")) {
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
