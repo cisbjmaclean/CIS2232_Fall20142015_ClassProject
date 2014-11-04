@@ -102,4 +102,10 @@ public class MemberBO {
             return MemberDAO.getMemberByUserid(userId);
         }
 
+        public static String getMemberName(String memberId){
+            Member theMember = MemberDAO.getMember(memberId);
+            String name = theMember.getFirstName() + " " + theMember.getLastName();
+            return name;
+        }
+        
 }
