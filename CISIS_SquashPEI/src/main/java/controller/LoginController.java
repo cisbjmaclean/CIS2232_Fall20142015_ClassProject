@@ -46,6 +46,7 @@ public class LoginController {
             MemberSquash theMember = MemberSquashBO.getMemberByUserid(login.getUsername());
             theMember.getMember().setPassword(login.getPassword());
             request.getSession().setAttribute("loggedInMember", theMember);
+            request.getSession().setAttribute("currentMember", theMember);
             mv.addObject("memberSquash", theMember);
         } else {
             mv = new ModelAndView("login");

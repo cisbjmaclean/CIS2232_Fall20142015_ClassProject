@@ -44,7 +44,9 @@ INSERT INTO `code_type` (`code_type`, `english_description`, `french_description
 (17, 'User types', 'User types', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
 (18, 'Divisions', 'Divisions', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
 (19, 'Levels', 'Levels', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
-(20, 'Clubs', 'Clubs', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin');
+(20, 'Clubs', 'Clubs', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin'),
+(21, 'Seasons', 'Seasons', '2014-08-16 21:52:57', 'admin', '2014-08-16 21:52:57', 'admin');
+
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,9 @@ INSERT INTO `code_value` (`code_type_id`, `code_value_sequence`, `english_descri
 (19, 3, 'C', 'C', 'C', 'C', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
 (19, 4, 'D', 'D', 'D', 'D', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
 (20, 1, 'Spa', 'Spa', 'Spa', 'Spa', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
-(20, 2, 'UPEI', 'UPEI', 'UPEI', 'UPEI', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin');
+(20, 2, 'UPEI', 'UPEI', 'UPEI', 'UPEI', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(21, 1, '2014-2015', '2014-2015', '2014-2015', '2014-2015', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin'),
+(21, 2, '2015-2016', '2015-2016', '2015-2016', '2015-2016', '2014-08-16 21:56:07', 'Admin', '2014-08-16 21:56:07', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -317,6 +321,7 @@ CREATE TABLE IF NOT EXISTS `member_payment` (
   `payment_amount` double NOT NULL COMMENT 'Amount of payment',
   `payment_detail` varchar(144) DEFAULT NULL COMMENT 'Comments about the payment',
   `payment_season_code` int(3) NOT NULL COMMENT 'Code type 21 - indicate which season the payment is for.',
+  `payment_status_code` int(3) NOT NULL COMMENT 'Code type 2',
   `created_date_time` datetime NOT NULL,
   `created_user_id` varchar(20) NOT NULL,
   `updated_date_time` datetime NOT NULL,

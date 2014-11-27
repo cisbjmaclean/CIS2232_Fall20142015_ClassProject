@@ -39,9 +39,7 @@ public static void loadCodes(HttpServletRequest request){
     request.getSession().setAttribute("divisions",getCodeValues("18"));
     request.getSession().setAttribute("levels",getCodeValues("19"));
     request.getSession().setAttribute("clubs",getCodeValues("20"));
-    
-    
-    return;
+    request.getSession().setAttribute("seasons",getCodeValues("21"));    
 }    
 
 public static CodeValue getCodeValueFromSession(HttpServletRequest request, String collectionName, int codeSequenceValue){

@@ -14,10 +14,10 @@
                 <td>
                     <label class="alignCenter"  for="notificationType">
                         <strong><fmt:message key="label.notification.type" />:&nbsp;&nbsp;</strong></label>
-                        <c:forEach var="thisNotification" items="${sessionScope.notification_types}" varStatus="loopCounter">
+                        <c:forEach var="thisSeason" items="${sessionScope.seasons}" varStatus="loopCounter">
 
-                        <form:radiobutton path="notificationType" value="${thisNotification.codeValueSequence}" />
-                        ${thisNotification.description}
+                        <form:radiobutton path="paymentSeasonCode" value="${thisSeason.codeValueSequence}" />
+                        ${thisSeason.description}
                     </c:forEach>
                 </td>
             </tr>

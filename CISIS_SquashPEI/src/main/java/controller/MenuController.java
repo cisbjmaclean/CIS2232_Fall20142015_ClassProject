@@ -6,6 +6,7 @@ import beans.MemberSquash;
 import beans.Notification;
 import business.MemberBO;
 import business.NotificationBO;
+import business.PaymentBO;
 import forms.Menu;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
@@ -26,14 +27,17 @@ public class MenuController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView onSubmit(@ModelAttribute("menu") Menu menu, HttpServletRequest request) {
         //pass validation if they enter "TEST" and "TEST"
+        MemberSquash currentMember = (MemberSquash) request.getSession().getAttribute("currentMember");
         System.out.println("Menu post invoked");
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
         } else if (menu.getAction().equalsIgnoreCase("Make Payment")) {
-            System.out.println("Payment functionaity to be completed");
-            mv = new ModelAndView("main");
-            mv.addObject("informationMessage", "Payment functionaity to be completed");
+            
+            System.out.println("User wants to view the payments");
+            mv = new ModelAndView("payment");
+            mv.addObject("payments",PaymentBO.getPayments(currentMember.getMember().getMemberId()));
+            mv.addObject("menu", new Menu());
         } else if (menu.getAction().equalsIgnoreCase("Reports")) {
             System.out.println("User wants to view reports");
             mv = new ModelAndView("main");

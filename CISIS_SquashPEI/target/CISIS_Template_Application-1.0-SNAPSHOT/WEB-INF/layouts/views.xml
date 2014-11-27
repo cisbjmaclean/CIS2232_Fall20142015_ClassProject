@@ -28,6 +28,14 @@
 	    <put-attribute name="body"	value="/WEB-INF/views/notification/notificationAdd.jsp" />
 	</definition>
 
+        <definition name="payment" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/payment/payment.jsp" />
+	</definition>
+
+        <definition name="paymentAdd" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/payment/paymentAdd.jsp" />
+	</definition>
+
         <definition name="viewMembers" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/views/member/viewMembers.jsp" />
 	</definition>
