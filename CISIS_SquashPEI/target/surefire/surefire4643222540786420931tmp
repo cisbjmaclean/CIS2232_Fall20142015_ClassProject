@@ -1,9 +1,0 @@
-#surefire
-#Thu Nov 27 11:17:58 AST 2014
-maven.ext.class.path=C\:\\Users\\BJ\\AppData\\Roaming\\NetBeans\\8.0\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\BJ\\Documents\\GitHub\\CIS2232_Fall20142015_ClassProject\\CISIS_SquashPEI
-file.encoding=UTF-8
-localRepository=C\:\\Users\\BJ\\.m2\\repository
-netbeans.deploy=true
-netbeans.deploy.clientUrlPart=/welcome
-basedir=C\:\\Users\\BJ\\Documents\\GitHub\\CIS2232_Fall20142015_ClassProject\\CISIS_SquashPEI

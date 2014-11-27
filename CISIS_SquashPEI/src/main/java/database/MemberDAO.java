@@ -5,6 +5,7 @@ import exceptions.PasswordException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import util.ConnectionUtils;
 import util.DbUtils;
@@ -71,7 +72,6 @@ public class MemberDAO {
 //            ps = conn.prepareStatement(sql);
 //            ps.setInt(1, nextMESequence);
 //            ps.executeUpdate();
-
             sql = "INSERT INTO member_bio (member_id, first_name, middle_name, last_name, email_address) "
                     + "VALUES (?,?,?,?,?)";
 
@@ -130,7 +130,7 @@ public class MemberDAO {
         return;
     }
 
-        public static void deleteMember(int memberId, String updatedUserId) {
+    public static void deleteMember(int memberId, String updatedUserId) {
 
         System.out.println("deleting member");
         PreparedStatement psMember = null;
@@ -162,7 +162,6 @@ public class MemberDAO {
         }
     }
 
-    
     public static String getAllActiveMembersEmails() {
         String emails = "";
         boolean first = true;
@@ -174,6 +173,37 @@ public class MemberDAO {
             emails += member.getEmailAddress();
         }
         return emails;
+    }
+
+    /**
+     * This method will return all members that have dobs which start with the
+     * current year and month.
+     *
+     * @return the list of members with birthdays in the current year/month.
+     * @since 201411127
+     * @author BJ MacLean
+     */
+    public static ArrayList<String> getActiveMembersForBirthday() {
+        ArrayList<Member> allMembers = getAllActiveMembers();
+        ArrayList<String> birthdayMembers = new ArrayList();
+
+        SimpleDateFormat formatter = new SimpleDateFormat("MM");
+        String today = formatter.format(new java.util.Date());
+        System.out.println("Comparing for month="+today);
+
+        for (Member nextMember : allMembers) {
+            try {
+                System.out.println("Birthday start=" + nextMember.getDateOfBirth().substring(5));
+                if (nextMember.getDateOfBirth().length() > 6) {
+                    if (nextMember.getDateOfBirth().substring(5).startsWith(today)) {
+                        birthdayMembers.add(nextMember.getFirstName() + " " + nextMember.getLastName());
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("There was an exception in the dob");
+            }
+        }
+        return birthdayMembers;
     }
 
     public static ArrayList<Member> getAllActiveMembers() {
@@ -236,17 +266,16 @@ public class MemberDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 memberId = (rs.getInt("member_id"));
-                System.out.println("found member for "+userId+" the member id="+memberId);
+                System.out.println("found member for " + userId + " the member id=" + memberId);
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Error encountered getting member by user id");
-        }            
-        
+        }
+
         return getMember(String.valueOf(memberId));
     }
 
-    
     public static Member getMember(String memberId) {
         PreparedStatement ps = null;
         String sql = null;
@@ -264,7 +293,7 @@ public class MemberDAO {
                 newMember.setUserType(rs.getInt("user_type"));
                 newMember.setUserId(rs.getString("user_id"));
             }
-            
+
             sql = "SELECT * FROM member_bio WHERE member_id = " + memberId;
 
             ps = conn.prepareStatement(sql);
@@ -274,7 +303,7 @@ public class MemberDAO {
                 newMember.setFirstName(rs.getString("first_name"));
                 newMember.setMiddleName(rs.getString("middle_name"));
                 newMember.setLastName(rs.getString("last_name"));
-               // newMember.setSalutationCode(rs.getInt("salutation_code"));
+                // newMember.setSalutationCode(rs.getInt("salutation_code"));
                 newMember.setAddressLine1(rs.getString("address_1"));
                 newMember.setAddressLine2(rs.getString("address_2"));
                 newMember.setMunicipality(rs.getString("municipality"));
