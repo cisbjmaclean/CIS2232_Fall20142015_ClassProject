@@ -8,7 +8,7 @@
                 </td>
             </tr>
             <tr>
-                <td>        <input type="submit" name="action" value="Make Payment">
+                <td>        <input type="submit" name="action" value="Payments">
                 </td>
             </tr>
             <tr>

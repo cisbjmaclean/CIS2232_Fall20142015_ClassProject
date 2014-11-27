@@ -4,6 +4,7 @@ import beans.ChangePassword;
 import beans.CodeValue;
 import beans.MemberSquash;
 import beans.Notification;
+import beans.Payment;
 import business.MemberBO;
 import business.NotificationBO;
 import business.PaymentBO;
@@ -32,7 +33,7 @@ public class MenuController {
         ModelAndView mv;
         if (menu.getAction().equalsIgnoreCase("Logout")) {
             mv = new ModelAndView("welcome");
-        } else if (menu.getAction().equalsIgnoreCase("Make Payment")) {
+        } else if (menu.getAction().equalsIgnoreCase("Payments")) {
             
             System.out.println("User wants to view the payments");
             mv = new ModelAndView("payment");
@@ -51,6 +52,10 @@ public class MenuController {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
             mv.addObject("notification",new Notification());
+        } else if (menu.getAction().equalsIgnoreCase("Add Payment")) {
+            System.out.println("User wants to view add a payment");
+            mv = new ModelAndView("paymentAdd");
+            mv.addObject("payment",new Payment());
         } else if (menu.getAction().equalsIgnoreCase("View Codes")) {
             System.out.println("User wants to view the codes");
             mv = new ModelAndView("viewCodes");
