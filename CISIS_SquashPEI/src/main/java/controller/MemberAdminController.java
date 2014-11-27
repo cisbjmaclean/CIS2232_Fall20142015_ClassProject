@@ -57,6 +57,9 @@ public class MemberAdminController {
             mv.addObject("memberSquash", memberSquash);
             if (request.getParameter("memberId").equals((String) request.getSession().getAttribute("loggedInUserId"))) {
                 request.getSession().setAttribute("loggedInMember", memberSquash);
+                request.getSession().setAttribute("currentMember", memberSquash);
+            }else {
+                request.getSession().setAttribute("currentMember", memberSquash);
             }
         }
         return mv;

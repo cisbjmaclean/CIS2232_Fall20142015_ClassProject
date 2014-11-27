@@ -8,15 +8,15 @@
                 </td>
             </tr>
             <tr>
+                <td><fmt:message key="label.member.details" />
+                </td>
+            </tr>
+            <tr>
                 <td>        <input type="submit" name="action" value="Payments">
                 </td>
             </tr>
             <tr>
                 <td>        <input type="submit" name="action" value="Change Password">
-                </td>
-            </tr>
-            <tr>
-                <td>        <input type="submit" name="action" value="Logout">
                 </td>
             </tr>
             <tr>
@@ -37,6 +37,10 @@
             </tr>
             <tr>
                 <td>        <input type="submit" name="action" value="View Codes">
+                </td>
+            </tr>
+            <tr>
+                <td>        <input type="submit" name="action" value="Logout">
                 </td>
             </tr>
             <tr>
