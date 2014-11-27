@@ -60,13 +60,6 @@
                 </tr>
                 <tr><td><hr/></td></tr>
             </c:forEach>
-            <tr>
-                <td>
-                    <hr/>
-                </td>
-            </tr>
-
-
 
             <tr>
                 <td>        <input type="submit" id="TheButton" name="action" value="Add Payment">
