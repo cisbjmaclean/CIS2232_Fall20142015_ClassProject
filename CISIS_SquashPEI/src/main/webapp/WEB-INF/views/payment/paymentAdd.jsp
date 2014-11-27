@@ -9,7 +9,17 @@
 <form action="payment" method="post">
     <spring:nestedPath path="payment">
         <h2><fmt:message key="label.payment"/></h2>
-        <table>                
+        <table>
+            <tr>
+                <td>
+                    <label class="alignCenter"  for="paymentSeasonCode">
+                        <strong><fmt:message key="label.season" /></strong></label>
+                        <form:select path="paymentSeasonCode">
+                            <form:options items="${sessionScope.seasons}" itemLabel="description" itemValue="codeValueSequence"/>
+                        </form:select>
+                </td>
+            </tr>
+
             <tr>
                 <td><label class="alignCenter"  for="paymentAmount">
                         <fmt:message key="label.payment.amount" /></label><br />
@@ -20,9 +30,10 @@
             <tr>
                 <td><label class="alignCenter"  for="paymentDetail">
                         <fmt:message key="label.payment.detail" /></label><br />
-                        <form:input  path="paymentAmount"/>
+                        <form:input  path="paymentDetail"/>
                 </td>
             </tr>
+            
             <tr/>
             <tr align="center">
                 <td colspan="2">

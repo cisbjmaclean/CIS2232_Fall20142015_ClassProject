@@ -8,6 +8,7 @@ package beans;
 public class Payment {
     private int memberId;
     private String userId;
+    private int paymentId;
     private String paymentAmount;
     private String paymentDetail;
     private String paymentSeasonCode;
@@ -21,6 +22,15 @@ public class Payment {
         this.memberId = memberId;
     }
 
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    
     public String getUserId() {
         return userId;
     }
@@ -59,6 +69,11 @@ public class Payment {
 
     public void setPaymentSeasonCodeDescription(String paymentSeasonCodeDescription) {
         this.paymentSeasonCodeDescription = paymentSeasonCodeDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" + "memberId=" + memberId + ", userId=" + userId + ", paymentAmount=" + paymentAmount + ", paymentDetail=" + paymentDetail + ", paymentSeasonCode=" + paymentSeasonCode + ", paymentSeasonCodeDescription=" + paymentSeasonCodeDescription + '}';
     }
 
     

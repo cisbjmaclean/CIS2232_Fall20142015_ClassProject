@@ -262,6 +262,7 @@ public class MemberDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 newMember.setUserType(rs.getInt("user_type"));
+                newMember.setUserId(rs.getString("user_id"));
             }
             
             sql = "SELECT * FROM member_bio WHERE member_id = " + memberId;

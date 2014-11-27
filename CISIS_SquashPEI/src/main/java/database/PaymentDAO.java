@@ -27,7 +27,7 @@ public class PaymentDAO {
         PreparedStatement ps = null;
         String sql = null;
         Connection conn = null;
-
+        System.out.println("inserting payment for payment="+payment);
         /*
          * Setup the sql to update or insert the row.
          */
@@ -36,9 +36,9 @@ public class PaymentDAO {
 
             sql = "INSERT INTO `member_payment`(`member_id`, "
                     + "`payment_amount`, `payment_detail`, "
-                    + "`payment_season_code`, `created_date_time`, `created_user_id`, "
-                    + "`updated_date_time`, `updated_user_id`) VALUES (?,?,?,?, sysdate(), ?, sysdate(), ?)";
-
+                    + "`payment_season_code`,`payment_status_code`, `created_date_time`, `created_user_id`, "
+                    + "`updated_date_time`, `updated_user_id`) VALUES (?,?,?,?,1, sysdate(), ?, sysdate(), ?)";
+            System.out.println("SQL for input =***"+sql+"***");
             ps = conn.prepareStatement(sql);
             ps.setInt(1, payment.getMemberId());
             ps.setDouble(2, Double.parseDouble(payment.getPaymentAmount()));
@@ -50,6 +50,7 @@ public class PaymentDAO {
 
         } catch (Exception e) {
             String errorMessage = e.getMessage();
+            e.printStackTrace();
             System.err.println(errorMessage);
             throw e;
         } finally {
@@ -75,8 +76,8 @@ public class PaymentDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "update notification set payment_status_code = 2, updated_date_time = sysdate() "
-                + "where payment_id = ? ";
+            sql = "update member_payment set payment_status_code = 2, updated_date_time = sysdate() "
+                + "where member_payment_id = ? ";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, paymentId);
@@ -104,14 +105,15 @@ public class PaymentDAO {
         try {
             conn = ConnectionUtils.getConnection();
 
-            sql = "SELECT * FROM member_payment WHERE member_id = ? and status_code = 1 order by created_date_time desc";
-
+            sql = "SELECT * FROM member_payment WHERE member_id = ? and payment_status_code = 1 order by created_date_time desc";
+            System.out.println("Getting payments for member_id="+memberId);
             ps = conn.prepareStatement(sql);
             ps.setInt(1, memberId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Payment newPayment = new Payment();
                 newPayment.setMemberId(memberId);
+                newPayment.setPaymentId(rs.getInt("member_payment_id"));
                 newPayment.setPaymentAmount(String.valueOf(rs.getDouble("payment_amount")));
                 newPayment.setPaymentDetail(rs.getString("payment_detail"));
                 newPayment.setPaymentSeasonCode(String.valueOf(rs.getInt("payment_season_code")));

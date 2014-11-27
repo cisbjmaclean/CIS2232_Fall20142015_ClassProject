@@ -30,6 +30,7 @@ public class PaymentController {
     public ModelAndView onSubmit(HttpServletRequest request, @ModelAttribute("payment") Payment payment) {
         //pass validation if they enter "TEST" and "TEST"
 
+        MemberSquash loggedInMember = (MemberSquash) request.getSession().getAttribute("loggedInMember");
         MemberSquash currentMember = (MemberSquash) request.getSession().getAttribute("currentMember");
 
         String informationMessage = "";
@@ -48,6 +49,8 @@ public class PaymentController {
 
             System.out.println("About to add a payment (" + payment.getPaymentDetail() + ")");
             try {
+                payment.setUserId(loggedInMember.getMember().getUserId());
+                payment.setMemberId(currentMember.getMember().getMemberId());
                 PaymentBO.insertPayment(payment);
                 informationMessage = "Payment added";
             } catch (Exception ex) {
@@ -58,7 +61,7 @@ public class PaymentController {
 
         ModelAndView mv;
         mv = new ModelAndView("payment");
-        mv.addObject("payments", PaymentBO.getPayments(currentMember.getMember().getMemberId()));
+        mv.addObject("payments", PaymentBO.getPayments(loggedInMember.getMember().getMemberId()));
         mv.addObject("errorMessage", errorMessage);
         mv.addObject("informationMessage", informationMessage);
         mv.addObject("menu", new Menu());

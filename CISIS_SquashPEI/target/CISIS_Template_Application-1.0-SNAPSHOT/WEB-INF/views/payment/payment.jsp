@@ -36,10 +36,6 @@
                        varStatus="loopCounter">
                 <tr>
                     <td>
-                        private String paymentAmount;
-                        private String paymentDetail;
-                        private String paymentSeasonCode;
-
                         ${thisPayment.paymentAmount}
                     </td>
                 </tr>
