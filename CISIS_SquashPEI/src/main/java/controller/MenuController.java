@@ -47,7 +47,9 @@ public class MenuController {
             System.out.println("User wants to view their information");
             mv = new ModelAndView("memberBio");
             mv.addObject("message", "User selected My information");
-            mv.addObject("memberSquash",(MemberSquash) request.getSession().getAttribute("loggedInMember"));
+            MemberSquash loggedInMember = (MemberSquash) request.getSession().getAttribute("loggedInMember");
+            request.getSession().setAttribute("currentMember", loggedInMember);
+            mv.addObject("memberSquash",loggedInMember);
         } else if (menu.getAction().equalsIgnoreCase("Add Notification")) {
             System.out.println("User wants to view add a notification");
             mv = new ModelAndView("notificationAdd");
