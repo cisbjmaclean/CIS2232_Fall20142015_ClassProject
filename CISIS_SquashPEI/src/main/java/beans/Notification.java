@@ -13,7 +13,17 @@ public class Notification {
     private int notificationType; 
     private String notificationDetail;
     private int notificationId;
+    private int paymentSeasonCode;
 
+    public int getPaymentSeasonCode() {
+        return paymentSeasonCode;
+    }
+
+    public void setPaymentSeasonCode(int paymentSeasonCode) {
+        this.paymentSeasonCode = paymentSeasonCode;
+    }
+    
+    
     public int getMemberId() {
         return memberId;
     }
